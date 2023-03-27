@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <title>Gaze</title>
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    </head>
+    <body>
+        <a-scene>
+            <a-assets>
+                <a-img id="flowertexture" src="assets/images/t_fabric.jpg"></a-img>
+                <a-img id="marble" src="assets/images/t_marble.jpg"></a-img>
+                <a-img id="sky" src="assets/images/t_sky.jpg"></a-img>
+
+                <a-asset-item id="dog" src="assets/models/shiba/scene.gltf"></a-asset-item>
+            </a-assets>
+            <!--<a-camera>
+<a-entity
+animation__click="property: scale; 
+startEvents: click; 
+easing: easeInCubic; 
+dur: 150; 
+from: 0.1 0.1 0.1; 
+to: 0.3 0.3 0.3"
+animation__fusing="property: scale;
+startEvents: fusing;
+easing: easeInCubic; 
+dur: 1500;
+from: 0.3 0.3 0.3;
+to: 0.1 0.1 0.1"
+animation__mouseleave="property: scale;
+startEvents: mouseleave;
+easing: easeInCubic;
+dur: 500;
+to: 0.3 0.3 0.3"
+cursor="fuse: true"
+raycaster="objects: .clickable"
+material="color: black; shader: flat"
+position="0 0 -3"
+geometry="primitive: ring"></a-entity>
+</a-camera>-->
+            s
+            <!-- Lampe -->
+
+            <a-cone id="lampe" 
+                    position="11.86615 14.6265 2.75975"
+                    rotation="45 0 0"
+                    color="gray">
+            </a-cone>
+            <!-- Gaze-Objekte -->
+            <a-text position="-1 5 -7"
+                    value="Gaze"
+                    color="black" 
+                    scale="4 4 4"></a-text>
+            <a-box id="leftlower" color="red" position="-2 0 -7"
+                   event-set__enter="_event: mouseenter; material.color: yellow"
+                   event-set__leave="_event: mouseleave; material.color: red"
+                   event-set__tarcol="_event: click; _target: #leftupper; material.color: #00AAFF" 
+                   event-set__clearclass="_event: click; class: not-clickable"
+                   event-set__tarclass="_event: click; _target: #leftupper; class: clickable"
+                   class="clickable">
+            </a-box>
+            <a-box id="leftupper" color="green" position="-2 3 -7"
+                   event-set__rescol="_event: click; material.color: green"
+                   event-set__clearclass="_event: click; class: not-clickable"
+                   event-set__tarclass="_event: click; _target: #leftlower; class: clickable"></a-box>
+
+            <a-box id="middlelower" color="red" position="0 0 -7"
+                   event-set__enter="_event: mouseenter; material.color: yellow"
+                   event-set__leave="_event: mouseleave; material.color: red"
+                   event-set__tarvis="_event: click; _target: #middleupper; visible: blue" 
+                   event-set__clearclass="_event: click; class: not-clickable"
+                   event-set__tarclass="_event: click; _target: #middleupper; class: clickable"
+                   class="clickable"></a-box>
+            <a-box id="middleupper" color="blue" position="0 3 -7"
+                   visible="false"
+                   event-set__resvis="_event: click; visible: false"
+                   event-set__clearclass="_event: click; class: not-clickable"
+                   event-set__tarclass="_event: click; _target: #middlelower; class: clickable"></a-box>
+
+            <a-box id="rightlower" color="red" position="2 0 -7"
+                   event-set__enter="_event: mouseenter; material.color: yellow"
+                   event-set__leave="_event: mouseleave; material.color: red"
+                   event-set__tarpos="_event: click; _target: #rightupper; position: 2 3 -5"
+                   event-set__clearclass="_event: click; class: not-clickable"
+                   event-set__tarclass="_event: click; _target: #rightupper; class: clickable"
+                   class="clickable"></a-box>
+            <a-box id="rightupper" color="purple" position="2 3 -7"
+                   event-set__respos="_event: click; position: 2 3 -7"
+                   event-set__clearclass="_event: click; class: not-clickable"
+                   event-set__tarclass="_event: click; _target: #rightlower; class: clickable"></a-box>
+
+            <!-- Animation-Objekte -->
+            <a-text position="11 5 -7"
+                    value="Animation"
+                    color="black" 
+                    scale="4 4 4"></a-text>
+
+            <a-cylinder id="ani-cylinder" 
+                        position="11 0 -7" 
+                        scale="0.5 1 0.5" 
+                        color="blue"
+                        animation__rotation="property: rotation;
+                                             to: 360 0 0;
+                                             loop: true;
+                                             dur: 1500;
+                                             easing: linear"
+                        animation__color="property: material.color;
+                                          from: #5555FF;
+                                          to: #000000;
+                                          loop: true;
+                                          dir: alternate;
+                                          dur: 1500;
+                                          easing: linear"></a-cylinder>
+            <a-sphere id="ani-sphere" 
+                      position="15 0 -7" 
+                      scale="0.5 0.5 0.5" 
+                      color="red"
+                      animation="property: material.opacity;
+                                 to: 0;
+                                 dir: alternate;
+                                 loop: true;
+                                 dur: 1500;
+                                 easing: linear"></a-sphere>
+            <a-box id="ani-box"
+                   position="13 0 -7"
+                   color="green"
+                   animation="property: position;
+                              to: 0 2 0;
+                              loop: true;
+                              dir: alternate;
+                              dur: 3000;
+                              easing: linear
+                              "
+                   ></a-box>
+            <a-entity position="15 0 -7"
+                      animation="property: rotation;
+                                 to: 0 360 0;
+                                 loop: true;
+                                 dur: 3000;
+                                 easing: linear">
+                <a-cone color="yellow" id="ani-cone" scale="0.2 0.2 0.2" position="0.8 0 0"></a-cone>
+            </a-entity>
+
+            <a-sky src="#sky"></a-sky>
+
+            <a-entity id="tisch" position="3 -2 -7">
+                <a-box  scale="5 .2 3" src="#flowertexture"></a-box>
+                <a-cylinder src="#flowertexture" position="-2.2 -1 -1.2" scale=".2 2 .2"></a-cylinder>
+                <a-cylinder src="#flowertexture" position="2.2 -1 -1.2" scale=".2 2 .2"></a-cylinder>
+                <a-cylinder src="#flowertexture" position="-2.2 -1 1.2" scale=".2 2 .2"></a-cylinder>
+                <a-cylinder src="#flowertexture" position="2.2 -1 1.2" scale=".2 2 .2"></a-cylinder>
+            </a-entity>
+            <a-entity id="tisch2" position="14 -2 -7">
+                <a-box  scale="5 .2 3" src="#flowertexture"></a-box>
+                <a-cylinder src="#flowertexture" position="-2.2 -1 -1.2" scale=".2 2 .2"></a-cylinder>
+                <a-cylinder src="#flowertexture" position="2.2 -1 -1.2" scale=".2 2 .2"></a-cylinder>
+                <a-cylinder src="#flowertexture" position="-2.2 -1 1.2" scale=".2 2 .2"></a-cylinder>
+                <a-cylinder src="#flowertexture" position="2.2 -1 1.2" scale=".2 2 .2"></a-cylinder>
+            </a-entity>
+
+            <a-plane id="plane" material="src: #marble; repeat: 5 5" rotation="-90 0 0" scale="100 100 1"  position="3 -4 -10">
+            </a-plane>
+            <a-entity light="type: ambient; color: #555">
+
+            </a-entity>
+            <a-entity data-brackets-id="425" light="type: point"></a-entity>
+
+            <a-entity gltf-model="#dog" scale="10 10 10" position="-5 5.8 -8.3"
+                      animation__rotation="property: rotation;
+                                           to: 0 360 0;
+                                           loop: true;
+                                           dur: 15500;
+                                           easing: linear"
+                      ></a-entity>
+        </a-scene>
+    </body>
+</html>
