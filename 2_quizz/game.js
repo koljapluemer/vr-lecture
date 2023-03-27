@@ -4,6 +4,7 @@
 
 // build array of questions + answers
 var answeredQuestions = [];
+let score = 0;
 
 function AnsweredQuestion(question, answera, answerb, answerc, answerd, correct) {
     this.question = question;
@@ -37,6 +38,7 @@ var answerBoardB = document.getElementById('answer-board-b');
 var answerBoardC = document.getElementById('answer-board-c');
 var answerBoardD = document.getElementById('answer-board-d');
 var nextBoard = document.getElementById('next-board');
+let scoreText = document.getElementById('score');
 
 // current question number;
 var questNum = 0;
@@ -85,12 +87,15 @@ function checkAnswer(board, c) {
     answerBoardD.setAttribute('class', 'not-clickable');
     if (c === answeredQuestions[questNum].correct) {
         board.setAttribute('color', 'green');
+        score += 10;
     } else {
         board.setAttribute('color', 'red');
         rightAnswerBoard.setAttribute('color', 'blue');
+        score -= 10;
     }
     questNum = (questNum + 1) % answeredQuestions.length;
     nextBoard.setAttribute('class', 'clickable');
+    scoreText.setAttribute('value', `Score: ${score}`);
 }
 
 // Initialization
