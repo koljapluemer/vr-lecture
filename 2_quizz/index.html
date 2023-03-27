@@ -36,24 +36,39 @@
                 material="color: black; shader: flat" position="0 0 -3" geometry="primitive: ring"></a-entity>
         </a-camera>
 
-        <a-entity id="quizz" position="0 0.297 0">
-            <a-text id="question" scale="0.3 0.3 0.3" text="color: #ffbe6f" position="-0.41757 1.39344 0"
-                value="Question??"></a-text>
-            <a-plane id="answer-board-a" material="color: #000000" position="0 .8 0">
-                <a-text id="answer-a" value="Answer A"></a-text>
-            </a-plane>
-            <a-plane id="answer-board-b" material="color: #000000">
-                <a-text id="answer-b" value="Answer B"></a-text>
-            </a-plane>
-            <a-plane id="answer-board-c" material="color: #000000" material="color: #000000" position="1.5 .8 0">
-                <a-text id="answer-c" value="Answer C"></a-text>
-            </a-plane>
-            <a-plane id="answer-board-d" material="color: #000000" position="1.5 0 0">
-                <a-text id="answer-d" value="Answer D"></a-text>
-            </a-plane>
-            <a-plane id="next-board" material="color: #c01c28" position="0.85747 -1.10796 0">
-                <a-text id="next" value="Next"></a-text>
-            </a-plane>
+        <a-entity id="quizz" position="0 0 -.1">
+
+            <a-entity id="question-wrapper" position="0 3 0">
+                <a-text id="question"  text="color: #ffbe6f" value="Question??"></a-text>
+            </a-entity>
+
+            <a-entity id="wrapper-a" position="0 2 0">
+                <a-plane id="answer-board-a" material="color: #000000" width="2"></a-plane>
+                <a-text id="answer-a" value="Answer A" width="2"></a-text>
+            </a-entity>
+
+            <a-entity id="wrapper-b" position="0 .5 0">
+                <a-plane id="answer-board-b" material="color: #000000" width="2"></a-plane>
+                <a-text id="answer-b" value="Answer B" width="2"></a-text>
+            </a-entity>
+
+            <a-entity id="wrapper-c" position="0 -1 0">
+                <a-plane id="answer-board-c" material="color: #000000" width="2"></a-plane>
+                <a-text id="answer-c" value="Answer C" width="2"></a-text>
+            </a-entity>
+
+            <a-entity id="wrapper-d" position="0 -2.5 0">
+                <a-plane id="answer-board-d" material="color: #000000" width="2"></a-plane>
+                <a-text id="answer-d" value="Answer D" width="2"></a-text>
+            </a-entity>
+
+            <!-- next -->
+            <a-entity id="next-wrapper" position="3 2 0">
+                <a-plane id="next-board" material="color: #000000" width="2"></a-plane>
+                <a-text id="next" value="Next" width="2"></a-text>
+            </a-entity>
+
+
         </a-entity>
     </a-scene>
 </body>
