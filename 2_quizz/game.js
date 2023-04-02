@@ -37,7 +37,6 @@ var answerBoardA = document.getElementById('answer-board-a');
 var answerBoardB = document.getElementById('answer-board-b');
 var answerBoardC = document.getElementById('answer-board-c');
 var answerBoardD = document.getElementById('answer-board-d');
-var nextBoard = document.getElementById('next-board');
 let scoreText = document.getElementById('score');
 
 // current question number;
@@ -64,7 +63,6 @@ function resetQuestions() {
     answerBoardB.setAttribute('color', '#555555');
     answerBoardC.setAttribute('color', '#555555');
     answerBoardD.setAttribute('color', '#555555');
-    nextBoard.setAttribute('class', 'not-clickable');
     question.setAttribute('value', answeredQuestions[questNum].question);
     answerA.setAttribute('value', answeredQuestions[questNum].answera);
     answerBoardA.setAttribute('class', 'clickable');
@@ -94,8 +92,9 @@ function checkAnswer(board, c) {
         score -= 10;
     }
     questNum = (questNum + 1) % answeredQuestions.length;
-    nextBoard.setAttribute('class', 'clickable');
     scoreText.setAttribute('value', `Score: ${score}`);
+    // 3 seconds delay before next question
+    setTimeout(resetQuestions, 3000);
 }
 
 
@@ -130,8 +129,4 @@ answerBoardD.addEventListener('click', function () {
     checkAnswer(answerBoardD, 'D');
 });
 
-// next board reacts on click event
-nextBoard.addEventListener('click', function () {
-    resetQuestions();
-});
 
