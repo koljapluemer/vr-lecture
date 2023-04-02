@@ -98,8 +98,21 @@ function checkAnswer(board, c) {
     scoreText.setAttribute('value', `Score: ${score}`);
 }
 
-// Initialization
-resetQuestions();
+
+
+function startGame() {
+    // Initialization
+    resetQuestions();
+}
+
+// add event listener for 'W' key keyup
+document.addEventListener('keyup', function (event) {
+    console.log(event.code);
+    if (event.code === "KeyW") {
+        startGame();
+    }
+});
+
 
 // Set up event handling
 
