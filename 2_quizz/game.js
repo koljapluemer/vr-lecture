@@ -22,7 +22,7 @@ function addAnsweredQuestion(question, answera, answerb, answerc, answerd, corre
     answeredQuestions.push(aq);
 }
 
-addAnsweredQuestion('What is the\ndiameter of\n the earth?', '40.000 km', '6.350 km', '12.700 km', '20.000 m', 'C', 'https://images.unsplash.com/photo-1680399524821-d4e6b225b0ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
+addAnsweredQuestion('What is the\ndiameter of\n the earth?', '40.000 km', '6.350 km', '12.700 km', '20.000 m', 'C', 'https://images.unsplash.com/photo-1584974292709-5c2f0619971b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
 addAnsweredQuestion('What is the\ncapital\nof Canada?', 'Toronto', 'Ottawa', 'Montreal', 'Quebec', 'B', 'https://images.unsplash.com/photo-1551009175-15bdf9dcb580?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80');
 addAnsweredQuestion('What is\ncos(π)?', '0', '-1', '+1', '1/2', 'B', 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWF0aGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60');
 addAnsweredQuestion('What is the\ncapital\nof Australia?', 'Perth', 'Melbourne', 'Sydney', 'Canberra', 'D', 'https://images.unsplash.com/photo-1515861461225-1488dfdaf0a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
@@ -41,6 +41,7 @@ var answerBoardC = document.getElementById('answer-board-c');
 var answerBoardD = document.getElementById('answer-board-d');
 let scoreText = document.getElementById('score');
 let quizzImg = document.getElementById('quiz-img');
+const countdown = document.getElementById('countdown');
 
 
 // current question number;
