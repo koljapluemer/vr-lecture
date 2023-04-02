@@ -39,12 +39,18 @@
 
         <a-entity id="quizz" position="0 0 -.1">
 
+            <a-image id="quiz-img" width="1.8" height="1.080" src="" position="-1 3.2 0"></a-image>
+
             <a-entity id="question-wrapper" position="0 3 0">
                 <a-text id="question" text="color: black" value="Move closer!"></a-text>
             </a-entity>
 
             <!-- score next to question -->
             <!-- add animation that makes element grow and come forward -->
+            <a-entity id="countdown-wrapper" position="1.5 3 0">
+                <a-text id="countdown" text="color: blue" value="-"></a-text>
+            </a-entity>
+
             <a-entity id="score-wrapper" position="1.5 3 0">
                 <a-text id="score" text="color: black" value="Score: 0"></a-text>
             </a-entity>
