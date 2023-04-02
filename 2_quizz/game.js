@@ -100,6 +100,7 @@ function checkAnswer(board, c) {
         rightAnswerBoard.setAttribute('color', 'blue');
         score -= 10;
     }
+    scoreText.setAttribute('value', `Score: ${score}`);
     // if questions are all done, delete answer boards
     if (questNum === answeredQuestions.length - 1) {
         question.setAttribute('value', 'Game Over');
@@ -107,10 +108,14 @@ function checkAnswer(board, c) {
         answerBoardB.setAttribute('visible', 'false');
         answerBoardC.setAttribute('visible', 'false');
         answerBoardD.setAttribute('visible', 'false');
+        answerA.setAttribute('visible', 'false');
+        answerB.setAttribute('visible', 'false');
+        answerC.setAttribute('visible', 'false');
+        answerD.setAttribute('visible', 'false');
+        quizzImg.setAttribute('visible', 'false');
     }
     else {
         questNum = (questNum + 1);
-        scoreText.setAttribute('value', `Score: ${score}`);
         // 3 seconds delay before next question
         setTimeout(resetQuestions, 3000);
     }
