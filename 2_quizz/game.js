@@ -59,6 +59,7 @@ function setRightAnswer() {
 
 // default state at start / after a question was answered
 function resetQuestions() {
+
     answerBoardA.setAttribute('color', '#555555');
     answerBoardB.setAttribute('color', '#555555');
     answerBoardC.setAttribute('color', '#555555');
@@ -91,10 +92,20 @@ function checkAnswer(board, c) {
         rightAnswerBoard.setAttribute('color', 'blue');
         score -= 10;
     }
-    questNum = (questNum + 1) % answeredQuestions.length;
-    scoreText.setAttribute('value', `Score: ${score}`);
-    // 3 seconds delay before next question
-    setTimeout(resetQuestions, 3000);
+    // if questions are all done, delete answer boards
+    if (questNum === answeredQuestions.length - 1) {
+        question.setAttribute('value', 'Game Over');
+        answerBoardA.setAttribute('visible', 'false');
+        answerBoardB.setAttribute('visible', 'false');
+        answerBoardC.setAttribute('visible', 'false');
+        answerBoardD.setAttribute('visible', 'false');
+    }
+    else {
+        questNum = (questNum + 1);
+        scoreText.setAttribute('value', `Score: ${score}`);
+        // 3 seconds delay before next question
+        setTimeout(resetQuestions, 3000);
+    }
 }
 
 
